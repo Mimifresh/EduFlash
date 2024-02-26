@@ -5,9 +5,12 @@ Tagline: Active Learning Through AI-Powered Flashcards
 
 ### Team:
 
-[Adeyemi Samuel](https://github.com/Samfrodo9) 
-[Onyenze Chetachi Divine](https://github.com/De-Chetachi/) 
-[Chukwu Miracle](https://github.com/Mimifresh/)
+<a href="https://github.com/Samfrodo9">Adeyemi Samuel</a>
+<br>
+<a href="https://github.com/De-Chetachi/">Onyenze Chetachi Divine</a>
+<br>
+<a href="https://github.com/Mimifresh/">Chukwu Miracle</a>
+
 
 ### Description:
 
@@ -16,8 +19,11 @@ EduFlash is a web application that uses AI to help users learn more effectively.
 ### Technologies:
 
 **Frontend:** ```React.js```
+
 **Backend:** ```Django```
+
 ***Other:*** ```HTML, CSS, Javascript, Python```
+
 
 ### Features:
 
