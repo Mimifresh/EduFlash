@@ -12,21 +12,24 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	max-height: 100vh;
+	/*max-height: 100vh;*/
 	background-color: skyblue;
   }
 
   h1 {
+	font-size: 26px;
 	text-align: center;
   }
   .container {
-	border-radius: 2px;
+	border-radius: 5px;
 	background-color: white;
+	width: 70%;
+	max-width: 400px;
+  	margin: auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
 }
-
-  
-
 
   .login-form {
 	margin: 0;
@@ -50,21 +53,22 @@ body {
 	border-radius: 3px;
   }
   
-
-
-
-
-
-
-
   button {
-	background-color: #007bff;
+	
+	width: 80%;
+	background-color: #0e37cec9;
 	color: white;
 	padding: 10px 20px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 25px;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
+	transition:
+	background-color 0.3s ease;
+	
+  }
+  .login-btn {
+	text-align: center;
+	margin-top: 12px;	
   }
   
   button:hover {
@@ -72,14 +76,16 @@ body {
   }
   
   .forgot-password {
-	margin-top: 10px;
 	text-align: right;
   }
   
   .forgot-password a {
 	color: #999;
 	text-decoration: none;
+	font-size: 10px;
 	font-weight: lighter;
+	position: relative;
+	
   }
   
   .forgot-password a:hover {
