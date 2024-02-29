@@ -1,0 +1,26 @@
+:root {
+  --background-color:#FAFAFA;
+  --text-color: #0A2647;
+  --decor: #1E56A0;
+  --light: #D6E4F0;
+  --light-t: #a5c4df;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Unna", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+}
+@media (max-width: 43.749375rem) {
+  body {
+    font-size: 1.25rem;
+  }
+}/*# sourceMappingURL=globals.css.map */

@@ -1,0 +1,131 @@
+@use 'util' as u;
+.logo{
+    border-bottom: 1px solid var(--decor);
+    //background-color: #D6E4F0;
+}
+.logoImg{
+    height: 100px;
+    width: 100;
+}
+
+.concon{
+    display: flex;
+    //justify-content: space-between;
+    justify-content: space-evenly;
+    height: fit-content;
+    margin: 50px auto;
+    padding: 10px;
+
+    @include u.breakpoint-down(small){
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: u.rem(50) u.rem(20);
+    }
+}
+
+.con{
+    border-radius: 20%;
+    //float: right;
+    width: 50vw;
+    background-image: url("../assets/images/temp/temp7.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    //text-align: center;
+    @include u.breakpoint-down(small){
+        height: u.rem(900);
+        width: inherit;
+    }
+}
+.aboutEdu{
+    width: 30vw;
+    text-align: center;
+    //border: 1px solid var(--decor);
+    //margin: 10px auto;
+    //padding: 50px;
+    //margin-left: 500px;s
+    @include u.breakpoint-down(small){
+        width: inherit;
+        margin-top: u.rem(50);
+    }
+}
+.dot{
+    //border: 50px dotted var(--text-color);
+    border-style: none;
+    border-top-style: dotted;
+    border-width: 1vw;
+    border-color: var(--decor);
+    margin: 5vh 45vw;
+}
+
+.contributors{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    @include u.breakpoint-down(small){
+        flex-direction: column;
+    }
+}
+.contributors h1{
+    margin-top: 50px;
+    @include u.breakpoint-down(small){
+        font-size: u.rem(50);
+    }
+}
+h2{
+    @include u.breakpoint-down(small){
+        font-size: u.rem(50);
+    }
+}
+.contributor{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin: 50px 100px 50px 100px;
+    @include u.breakpoint-down(small){
+        flex-direction: column;
+        justify-content: center;
+        margin: u.rem(20);
+    }
+}
+.contributorInfo{
+    //background-color: var(--background-color);
+    background-color: var(--light);
+    padding: u.rem(50);
+    //margin: 50px;
+    //border-radius: 25%;
+    text-align: center;
+}
+
+.contact{
+    padding: 50px;
+}
+.con_links{
+    height: fit-content;
+}
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    width: 100px;
+    margin: 10px;
+    padding: 5px;
+    background-color: var(--text-color);
+    border-radius: 25%;
+    color: var(--light);
+}
+.btn:hover{
+    opacity: 0.5;
+}
+.us{
+    min-width: 50%;
+    width: 400px;
+    height: 100%;
+    @include u.breakpoint-down(small){
+        width: 90vw;
+    }
+}
+footer p{
+    text-align: center;
+    padding: u.rem(20);
+}
