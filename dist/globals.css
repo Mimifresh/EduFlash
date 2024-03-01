@@ -3,24 +3,30 @@
   --text-color: #0A2647;
   --decor: #1E56A0;
   --light: #D6E4F0;
-  --light-t: #a5c4df;
 }
 
-* {
+html {
   margin: 0;
   padding: 0;
-}
-
-body {
+  box-sizing: border-box;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: "Unna", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.25rem;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: wrap;
+  word-wrap: break-word;
 }
-@media (max-width: 43.749375rem) {
-  body {
+@media (max-width: 37.499375rem) {
+  html {
     font-size: 1.25rem;
   }
+}
+
+img {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=globals.css.map */

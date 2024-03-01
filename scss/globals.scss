@@ -1,16 +1,23 @@
 @use 'util' as u;
-*{
+html{
     margin: 0;
     padding: 0;
-}
-body{
+    box-sizing: border-box;
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: "Unna", serif;
     font-weight: 400;
     font-style: normal;
     font-size: u.rem(20);
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: wrap;
+    word-wrap: break-word;
     @include u.breakpoint-down(small){
         font-size: u.rem(20);
     }
+}
+img{
+    width: 100%;
+    height: auto;
 }

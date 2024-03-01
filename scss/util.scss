@@ -3,9 +3,7 @@
     --background-color:#FAFAFA;
     --text-color: #0A2647;
     --decor: #1E56A0;
-    //--light: #F6F6F6;
     --light: #D6E4F0;
-    --light-t: #a5c4df;
 };
 
 @function rem($pixel){
@@ -19,23 +17,22 @@
 
 //>= 700 >= 950 >= 1600 >= 1450
 $breakpoints-up: (
-    "medium": rem(700),
-    "large": rem(950) ,
-    "xlarge": rem(1450),
+    "medium": rem(600),
+    "large": rem(1024),
 );
 
-//699.99 899.99 1439.99
-$breakpoints-down: (
-    "small": rem(699.99) ,
-    "medium": rem(949.99) ,
-    "large": rem(1449.99) ,
+$breakpoints-down:(
+    "small": rem(599.99),
+    "medium": rem(1023.99),
 );
 
-@mixin breakpoint($size){
+
+@mixin breakpoint-up($size){
     @media (min-width: map-get($breakpoints-up, $size)){
         @content;
     }
 };
+
 @mixin breakpoint-down($size){
     @media (max-width: map-get($breakpoints-down, $size)){
         @content;
