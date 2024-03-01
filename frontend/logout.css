@@ -1,55 +1,41 @@
-/* Inherit styles from the common base */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-size: 16px; /* Set a base font size for better scaling */
   }
   
   body {
 	font-family: sans-serif;
 	margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	min-height: 100vh;
-	background-color: skyblue;
   }
-  
-  h1 {
-	font-size: 26px;
-	text-align: center;
-  }
+
   
   .container {
 	border-radius: 5px;
 	background-color: white;
-	width: 70%;
-	max-width: 400px;
-	margin: auto;
-	padding: 20px;
-	height: 200px; /* Adjust height as needed */
+	padding: 2rem; /* Responsive padding */
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	/* Added display: flex and flex-direction: column */
-	display: flex;
-	flex-direction: column;
-	/* Added justify-content: center to center elements vertically */
-	justify-content: center;
-	align-items: center;
+	width: 100%; /* Allow full width on small screens */
+	max-width: 400px; /* Maintain max-width for larger screens */
+	margin: auto;
   }
   
-  .btn {
-	/* Inherit button styles */
-	width: 80%;
-	background-color: #0e37cec9;
-	color: white;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 25px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
+  
+  h1 {
+	font-size: 1.2rem;
+	display: inline-block
+	padding: 12px;
   }
   
-  .btn:hover {
-	background-color: #0056b3;
+  .logout-txt {
+
   }
-  
+  .login-btn {
+
+  }
+
+  .p-btn {
+
+  }

@@ -1,4 +1,3 @@
-/* Inherit styles from the common base */
 * {
 	margin: 0;
 	padding: 0;
@@ -23,15 +22,12 @@
   .container {
 	border-radius: 5px;
 	background-color: white;
-	padding: 2rem; /* Responsive padding */
+	padding: 2rem;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .login-form {
 	margin: 0;
-	/* Optional: Flexbox for vertical stacking on small screens */
-	/* display: flex;
-	flex-direction: column; */
   }
   
   .username-field,
@@ -46,14 +42,14 @@
   
   input[type="text"],
   input[type="password"] {
-	width: 100%; /* Ensures full width on all screens */
+	width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
   }
   
   button {
-	width: 100%; /* Adjust width as needed */
+	width: 100%;
 	background-color: #0e37cec9;
 	color: white;
 	padding: 10px 20px;
