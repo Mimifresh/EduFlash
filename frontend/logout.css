@@ -21,29 +21,41 @@
 	height: 60vh;
 	border: 1px solid black;
 	border-radius: 15px;
-	background-color: rgb(255, 210, 210);
+	background-color: rgba(255, 210, 214, 0.781);
 	margin: auto;
 	padding: 3rem;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	max-width: 400px;
-	text-align: center;
+	/*text-align: center;*/
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
   }
   
   h1 {
 	font-size: 2rem;
 	margin: 0 0 2rem;
+	overflow: hidden;
   }
   
   .p-btn {
-	margin: 2rem;
-	/*margin: 1.5rem 0;*/
+	margin: 1.5rem 0;
 	font-style: italic;
+	font-weight: bold;
+	overflow: hidden;
   }
   
   .login-btn {
-	display: inline-block;
-	margin-top: 5rem;
+	display: flex;
+	/*margin-top: 25%;*/
+	position: absolute;
+	bottom: 50px;
+	
+	/*transform: translate(-50%);*/
 	text-decoration: none;
+	
   }
 
   .btn {
@@ -56,6 +68,7 @@
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 	text-decoration: none;
+	text-align: center;
   }
   
   .btn:hover {
