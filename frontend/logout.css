@@ -36,12 +36,18 @@
   
   h1 {
 	font-size: 2rem;
-	margin: 0 0 2rem;
+	/*margin: 0 0 2rem;*/
 	overflow: hidden;
   }
   
+  .logout-txt {
+	position: absolute;
+	top: 10%;
+  }
   .p-btn {
-	margin: 1.5rem 0;
+	position: relative;
+	top: 40%;
+	/*margin: 1.5rem 0;*/
 	font-style: italic;
 	font-weight: bold;
 	overflow: hidden;
@@ -51,7 +57,7 @@
 	display: flex;
 	/*margin-top: 25%;*/
 	position: absolute;
-	bottom: 50px;
+	bottom: 10%;
 	
 	/*transform: translate(-50%);*/
 	text-decoration: none;
