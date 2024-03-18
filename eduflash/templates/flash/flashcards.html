@@ -1,0 +1,9 @@
+{% extends 'flash/main.html' %}
+{% block content %}
+<div>
+    {% for flashcard in flashcards %}
+    <h5>{{ flashcard.question }}</h5>
+    <p>{{ flashcard.answer }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
