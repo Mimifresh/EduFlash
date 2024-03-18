@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models
-from .forms import ResourceForm
+from .forms import ResourceForm, UserForm
+import re
+from . import utils
 '''this module contains views for the eduflash aoi endpoints'''
 # Create your views here.
 # get user flashcards 
@@ -9,14 +11,63 @@ from .forms import ResourceForm
 
 def home(request):
     '''view for the home page'''
-    return  HttpResponse('hello world')
+    return render(request, 'flash/main.html')
+    #return  HttpResponse('hello world')
 
+def upload_resource(request):
+    '''upload a resource for flashcard creation'''
+    form = ResourceForm(request.POST or None, request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid:
+            form.save()
+        resources = models.Resource.objects.all()
+        context = {'resources': resources}
+        return render(request, 'flash/resources.html', context )
+    context = {'form': form}
+    return render(request, 'flash/upload.html', context)
+    
+        
+
+def get_resource(request, pk):
+    '''get a particular resource'''
+    resource = models.Resource.object.get(id= int(pk))
+    context = {'resource': resource}
+    return redirect('create_flashcards')
+
+
+def create_flashcards(request, fk):
+    '''create flashcards from a resource'''
+    resource = models.Resource.objects.get(id = int(fk))
+    file_ = f'media/{resource.filepath.name}'
+    text = ''
+    with open(file_, 'r') as rse:
+        for line in rse:
+            text += line
+    text_array =  re.split("\.\s", text)
+    for text in text_array:
+        flash_dict = utils.main(text)
+        for key, value in flash_dict.items():
+            flash = models.Flashcard(resource=resource, question=key, answer=value)
+            flash.save()
+    flashcards = models.Flashcard.objects.filter(resource=resource)
+    context = {'flashcards': flashcards}
+    return render(request, 'flash/flashcards.html', context)
+
+    
 
 def register(request):
     '''view for the register endpoint get and post
     if method is post create a new user with the info
     if method is get return the register page'''
-    return render(request, 'flash/register.html')
+    form = UserForm()
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    
+    context = {'form': form}
+    return render(request, 'flash/register.html', context)
 
 
 def login(request):
@@ -29,6 +80,8 @@ def login(request):
 def resources(request, fk):
     '''get resources based on user_id
     return all resources that belong to a user'''
+    resources = models.Resource.objects.all()
+
 
 
 def resource(request):
@@ -45,7 +98,7 @@ def resource(request):
     context = {
         'form': form,
     }
-    return render(request, 'flash/re_form.html', context)
+    return render(request, 'flash/upload.html', context)
 
 
 def flashcards(request, fk):
