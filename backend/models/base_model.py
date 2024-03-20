@@ -53,8 +53,7 @@ class BaseModel:
 		implement this
 		from models import storage
 		storage.delete(self)
-		"""
-
+"""
 
 """
 Base Model
