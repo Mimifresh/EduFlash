@@ -1,0 +1,12 @@
+{% extends 'flash/main.html' %}
+{% block content %}
+{% for resource in resources %}
+<h3>{{ resource.name }} {{ resource.filepath }}</h3>
+<ul>
+    <li><a href="{% url 'get_resource' resource.id %}/create_flashcards">create flashcards </a></li>
+    <li><a href="">delete resource </a></li>
+    <li><a href="">update resource </a></li>
+</ul>
+{% endfor %}
+
+{% endblock %}

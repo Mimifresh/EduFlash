@@ -1,0 +1,126 @@
+:root {
+  --background-color:#FAFAFA;
+  --text-color: #0A2647;
+  --decor: #1E56A0;
+  --light: #D6E4F0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Unna", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: wrap;
+  word-wrap: break-word;
+}
+@media (max-width: 37.499375rem) {
+  html {
+    font-size: 1.25rem;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  height: 5rem;
+  border-bottom: 0.0625rem solid var(--text-color);
+  line-height: 1.5;
+}
+.logo__img {
+  height: 80%;
+  width: auto;
+  float: left;
+}
+
+.container {
+  display: flex;
+  margin-top: 0.3125rem;
+  background-image: linear-gradient(to right bottom, #FAFAFA, #D6E4F0);
+}
+.container__image {
+  flex: 0 0 60%;
+}
+.container__image__img {
+  min-height: 100%;
+}
+.container h1 {
+  width: 80%;
+  margin: 1.25rem auto;
+  text-align: left;
+}
+.container__form {
+  flex: 0 0 40%;
+  margin: auto;
+  word-wrap: break-word;
+}
+.container__form p {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+  margin-bottom: 1.875rem;
+}
+.container__form__fm {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+.value {
+  all: unset;
+  width: 98%;
+  margin-bottom: 1.875rem;
+  border-bottom: 1px solid var(--text-color);
+}
+
+.check {
+  margin-bottom: 1.875rem;
+}
+
+.submit {
+  all: unset;
+  width: 12.5rem;
+  max-width: 80%;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  text-align: center;
+  border-radius: 1.25rem;
+  padding: 0.3125rem 0;
+  margin-bottom: 1.875rem;
+}
+
+@media (max-width: 41.061875rem) {
+  .container {
+    flex-direction: column;
+  }
+  .container__image {
+    display: none;
+  }
+  .container__form {
+    width: 80%;
+  }
+}
+@media (max-width: 53.124375rem) {
+  .container__image {
+    flex: 0 0 50%;
+  }
+  .container__form {
+    flex: 0 0 50%;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.6;
+}/*# sourceMappingURL=register.css.map */
