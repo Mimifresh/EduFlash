@@ -10,16 +10,15 @@
         <div class="logo">
             <img class="logo__img" src="../../../../assets/images/Eduicon.png" alt="">
         </div>
-        <H1>Eduflash</H1>
+        <h1>Eduflash</h1>
     </header>
     
-    
-    {% block content%}
+	{% block content%}
     <div>
-        <a href="{% url 'upload_resource' %}"> upload resource</a>
+        <a href="{% url 'flash:upload_resource' %}"> upload resource</a>
     </div>
     {% endblock%}
-    
+
     <footer>
         <p><span>&copy;</span>2024 eduflash</p>
     </footer>

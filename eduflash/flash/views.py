@@ -1,10 +1,14 @@
+'''this module contains views for the eduflash api endpoints'''
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models
 from .forms import ResourceForm, UserForm
 import re
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login
 from . import utils
-'''this module contains views for the eduflash aoi endpoints'''
+
 # Create your views here.
 # get user flashcards 
 
@@ -12,7 +16,6 @@ from . import utils
 def home(request):
     '''view for the home page'''
     return render(request, 'flash/main.html')
-    #return  HttpResponse('hello world')
 
 def upload_resource(request):
     '''upload a resource for flashcard creation'''
@@ -33,6 +36,10 @@ def get_resource(request, pk):
     resource = models.Resource.object.get(id= int(pk))
     context = {'resource': resource}
     return redirect('create_flashcards')
+
+def about(request):
+    '''To process requests as regards about page'''
+    return render(request, 'flash/about.html', {})
 
 
 def create_flashcards(request, fk):
@@ -75,6 +82,22 @@ def login(request):
     if method is post call a method user.authenticate
     if true return the user dashboard
     if method is get return login page'''
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('')  # Redirect to your homepage
+            else:
+                form.add_error(None, 'Invalid username or password')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'flash/login.html', {'form': form})
+
+
 
 
 def resources(request, fk):
@@ -116,3 +139,4 @@ def flashcard(request, pk):
     if method is put update flashcard infomation
     if method is delete delete a flashcard'''
 
+    
