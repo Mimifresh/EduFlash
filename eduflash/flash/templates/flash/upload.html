@@ -1,0 +1,20 @@
+{% extends 'flash/main.html' %}
+{% block content %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+<p></p>
+{% endif %}
+<h2>{{ title }}</h2>
+<form class="container__form__fm" enctype="multipart/form-data" method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="submit" type="submit" value="{{ value }}"/>
+</form>
+</p>
+{% endblock %}

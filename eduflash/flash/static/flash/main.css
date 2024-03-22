@@ -1,0 +1,117 @@
+:root {
+    --background-color:#FAFAFA;
+    --text-color: #0A2647;
+    --decor: #1E56A0;
+    --light: #D6E4F0;
+  }
+  .logo {
+    height: 5rem;
+    border-bottom: 0.0625rem solid var(--text-color);
+    line-height: 1.5;
+  }
+  
+  .logoImg {
+    height: 80%;
+    width: auto;
+    float: left;
+  }
+  
+  .con {
+    display: flex;
+    max-width: 43.75rem;
+    margin: 2% auto;
+    flex-direction: column-reverse;
+  }
+  .con__image img {
+    border-radius: 20%;
+  }
+  
+  .contributors {
+    display: flex;
+    flex-direction: column;
+    max-width: 43.75rem;
+    margin: 2% auto;
+  }
+  
+  .contributor {
+    background-color: var(--light);
+    margin-bottom: 5%;
+  }
+  
+  .contact {
+    padding: 5%;
+  }
+  
+  .contact h2 {
+    margin: 0;
+  }
+  
+  .con_links {
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 37.499375rem) {
+    .con_links {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    width: 6.25rem;
+    max-width: 80%;
+    margin: 0.625rem auto;
+    background-color: var(--text-color);
+    border-radius: 25%;
+    color: var(--light);
+  }
+  
+  .btn:hover {
+    opacity: 0.5;
+  }
+  
+  html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Unna", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: wrap;
+    word-wrap: break-word;
+  }
+  @media (max-width: 37.499375rem) {
+    html {
+      font-size: 1.25rem;
+    }
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  footer{
+    /*position: fixed;*/
+    width: 100%;
+    margin: 50px auto 0;
+    padding: 10px;
+    /*bottom: 0;*/
+    background-color: #D6E4F0;
+  }
+  
+  @media(max-width: 900px){
+    .content{
+      margin: 0;
+      margin-top: 120px;
+      width: 100%;
+    }
+  }

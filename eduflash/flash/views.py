@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models
-from .forms import ResourceForm, UserForm
+from .forms import ResourceForm, UserForm, LogInForm
 import re
 from . import utils
+from django.contrib import messages
+from django.contrib.auth import logout, login, authenticate
 '''this module contains views for the eduflash aoi endpoints'''
 # Create your views here.
 # get user flashcards 
@@ -14,19 +16,109 @@ def home(request):
     return render(request, 'flash/main.html')
     #return  HttpResponse('hello world')
 
+def about(request):
+    '''view for the about page'''
+    return render(request, 'flash/about.html')
+
+def sign_up(request):
+    '''register a user'''
+    form = UserForm(request.POST or None)
+    if request.POST:
+        if form.is_valid():
+            try:
+                dict_ = {'username': request.POST['username'],
+                'first_name': request.POST['first_name'],
+                'last_name': request.POST['last_name'],
+                'email': request.POST['email']
+                }
+                password = form.clean_password()
+                user = models.User.objects.create_user(**dict_)
+                user.set_password(password)
+                user.save()
+                return redirect('log_in')
+            except Exception as e:
+                messages.error(request, e)
+                return redirect('sign_up')
+        else:
+            messages.error(request, 'invalid form parameters')
+            return redirect('sign_up')
+    context = {'form': form, 'value': 'sign up', 'title': 'Sign up'}
+    return render(request, 'flash/upload.html', context)
+            
+
+
+
+def log_in(request):
+    '''log a user in'''
+    form = LogInForm(request, request.POST or None)
+    if request.POST:
+        username = request.POST["username"]
+        password = request.POST["password"]
+        if form.is_valid():
+            user = authenticate(request, username=username, password=password)
+            print(user)
+            if user is not None:
+                login(request, user)
+                context = {'user': user}
+                return render(request, 'flash/dashboard.html', context)
+            else:
+                messages.error(request, "Invalid username or password.")
+                return redirect('log_in')
+    context = {'form': form, 'value': 'log in', 'title': 'log in'}
+    return render(request, 'flash/upload.html', context)
+
+def log_out(request):
+    '''log a user out'''
+    logout(request)
+
+
+def resources(request, fk):
+    '''get resources based on user_id
+    return all resources that belong to a user'''
+    resources = models.Resource.objects.filter(user=request.user)
+    context = {'rsources': resources}
+    return render(request, 'flash/resources.html', context)
+
+
+
 def upload_resource(request):
     '''upload a resource for flashcard creation'''
     form = ResourceForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
-        if form.is_valid:
-            form.save()
-        resources = models.Resource.objects.all()
-        context = {'resources': resources}
+        if form.is_valid():
+            if request.user.is_authenticated:
+                form.save()
+                resources = models.Resource.objects.all()
+                context = {'resources': resources}
+            else:
+                resource = form.save(commit=False)
+                context = {'resource: resource'}
+                return render(request, 'flash/resources.html', context )
+
         return render(request, 'flash/resources.html', context )
-    context = {'form': form}
+    context = {'form': form, 'value': 'upload', 'title': 'File uploader'}
     return render(request, 'flash/upload.html', context)
-    
-        
+
+
+def delete_resource(request, pk):
+    '''delete resource specified by pk'''
+    resource =  models.Resource.object.get(id=int(pk))
+    form = ResourceForm(instance = resource)
+
+
+def update_resource(request, pk):
+    '''update resource specified by pk'''
+    resource =  models.Resource.object.get(id=int(pk))
+    form = ResourceForm(instance=resource)
+    if request.method == "POST":
+        form = ResourceForm(request.POST, instance=resource)
+        if form.is_valid():
+            form.save()
+            return redirect('flash/resources.html')
+    context = {"form": form, 'value': 'update', 'title': 'Update file info'}
+    return render(request, 'flash/upload.html', context)
+
+
 
 def get_resource(request, pk):
     '''get a particular resource'''
@@ -77,28 +169,7 @@ def login(request):
     if method is get return login page'''
 
 
-def resources(request, fk):
-    '''get resources based on user_id
-    return all resources that belong to a user'''
-    resources = models.Resource.objects.all()
 
-
-
-def resource(request):
-    '''get post delete
-    if method is get retrive a resource based on id
-    if method id post, create a resource object and save it to databaase
-    then render a page that gives the client a flashcard creation option
-    if method is delete delete the resource specified by user from database,
-    also delete flashcards created from resource, inform user of this action'''
-    form = ResourceForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-
-    context = {
-        'form': form,
-    }
-    return render(request, 'flash/upload.html', context)
 
 
 def flashcards(request, fk):

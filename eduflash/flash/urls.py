@@ -6,6 +6,15 @@ from . import views
 urlpatterns = [
     #path to the home page
     path('', views.home, name='home'),
+
+    path('about', views.about, name='about'),
+
+    #path to sign up
+    path('sign_up', views.sign_up, name='sign_up'),
+
+    #path to log in
+     path('log_in', views.log_in, name='log_in'),
+
     # path('register', views.register, name='register'),
     # path('resource', views.resource, name='resource'),
 
@@ -27,13 +36,22 @@ urlpatterns = [
     #get a particular resource by id 
     path('resource/<id>', views.get_resource, name='get_resource'),
 
+    #update a resource
+    path('resource/<id>', views.get_resource, name='update_resource'),
+
+    #delete a resource
+    path('resource/<id>', views.get_resource, name='delete_resource'),
+
     #create and view flashcards
     path('resource/<fk>/create_flashcards', views.create_flashcards, name='create_flashcards'),
 
-    # # if get retrive all flashcards made from a resource
-    # # if post create flashcards from resource
-    # path('resources/<int:resource_id>/flashcards', views.flashcards, name='flashcards'),
+    #get  a flashcard
+    #path('flashcard/<int:pk>', views.get_flashcard)
 
-    # #retrive, delete, update a flashcard
-    # path('flashcards/<int:flashcard_id>', views.flashcard, name='flashcard')
+    #update a flashcard
+    #path('flashcard/<int:pk>', views.update_flashcards)
+
+    #delete a flashcard
+    #path('flashcard/<int:pk>', views.delete_flashcards)
+
 ]
