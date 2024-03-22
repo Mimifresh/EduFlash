@@ -30,7 +30,7 @@ class LogInForm(AuthenticationForm):
 
 
 class UserForm(models.ModelForm):
-    '''this class represents a form foe getting
+    '''this class represents a form for getting
     information about user
     to be uploaded
     '''

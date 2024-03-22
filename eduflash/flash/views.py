@@ -58,7 +58,7 @@ def log_in(request):
             user = authenticate(request, username=username, password=password)
             print(user)
             if user is not None:
-                login(request, user)
+                login(user)
                 context = {'user': user}
                 return render(request, 'flash/dashboard.html', context)
             else:
