@@ -11,7 +11,7 @@ def query(payload):
     return response.json()
 
 
-instructions = "generate question as Q: answer as A: pairs from the text above"
+instructions = "generate question(Q) and answer(A) pair from the text above"
 
 def main(text):
     text = text.replace('\n', ' ')

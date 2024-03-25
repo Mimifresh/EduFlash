@@ -8,27 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Butterfly+Kids&family=Cabin:ital@0;1&family=Itim&family=Kanit&family=Montserrat:wght@500&family=Open+Sans&family=Sacramento&family=Suravaram&family=Unna:ital@0;1&family=Zen+Loop&display=swap" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'flash/main.css' %}">
+    <link rel="stylesheet" href="{% static 'flash/resources.css' %}">
     <link rel="stylesheet" href="{% static 'flash/uploadd.css' %}">
+    <link rel="stylesheet" href="{% static 'flash/about.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'flash/favicon (3).ico' %}">
     <title>Eduflash</title>
 </head>
 <body>
     <header>
-        <!-- <div class="logo">
-            <img class="logoImg" src="..\assets\images\Eduicon.png" alt="">
-        </div> -->
-        <div style="background-color: #D6E4F0; height: 200px; color: #0A2647; border-radius: 10px;" class="head">
-            <div class="nav" style="height: 100px; margin-left: 20px; padding: 10px">
-                <h1 style="position: absolute; font-size: 3.5em; margin: 0;">EDUFLASH</h1>
-                <div class="links" style="position: absolute; right: 20px; top: 40px; padding: 10px;">
-                    <a style="color: #0A2647; padding: 5px; text-decoration: none;" href="{% url 'home' %}">Home</a>
-                    <a style=" color: #0A2647; padding: 5px; text-decoration: none;" href="{% url 'sign_up' %}">Sign up</a>
-                    <a style="color: #0A2647; padding: 5px; text-decoration: none;" href="{% url 'log_in' %}">Log in</a>
-                    <a style="color: #0A2647; padding: 5px; text-decoration: none;" href="{% url 'about' %}">About</a>
+        <div class="header">
+            <div class="nav">
+                <h1>EDUFLASH</h1>
+                <div class="links">
+                    <a href="{% url 'home' %}">Home</a>
+                    {% if not request.user.is_authenticated %}
+                        <a href="{% url 'sign_up' %}">Sign up</a>
+                        <a href="{% url 'log_in' %}">Log in</a>
+                    {% else %}
+                        <a href="{% url 'resources' %}">resources</a>
+                        <a href="{% url 'log_out' %}">Log out</a>
+                    {% endif %}
+                    <a href="{% url 'about' %}">About</a>
                 </div>
             </div>
-            <div class="circle" style=" display: flex; align-items: center; justify-content: center; background-color: #FAFAFA; border-radius: 50%; margin-left: 20px; margin-top: 10px; color: #0A2647; height: 200px; width: 200px;">
-                <div style="height: fit-content; width: fit-content; margin: 0; padding: 0; line-height: 0;">
+            <div class="circle">
+                <div>
                     <h2>Eduflash</h2>
                     <h4>Learning made fun</h4>
                 </div>
@@ -37,14 +41,19 @@
     </header>
 
     
-    <div class="content" style="color: #0A2647; min-height: 200px; max-height: 700px; overflow-y: scroll; border:1px solid #0A2647; width: calc(100% - 270px); margin-left: 250px; margin-top: 50px;">
-        {% block content%}
-        <p style="margin-top: 50px;">Enjoy an active and fun way of learning with Eduflash <br>       to create flashcards <a style="text-decoration: none; color: #D6E4F0; background-color: #0A2647; border-radius: 10px; padding: 7px;" href="{% url 'upload_resource' %}">upload your file</a></p>
+    <div class="content">
+        {% block hello %}
+        {% endblock %}
+        {% block catch %}
+        <p id="con_p">Enjoy an active and fun way of learning with Eduflash <br>       to create flashcards <a class="solid_links" href="{% url 'upload_resource' %}">upload your file</a></p>
+        {% endblock%}
+        {% block content%}  
         {% endblock %}
     </div>
     
 
     <footer>
-        <p><span>&copy;</span>2024 eduflash</p></footer>
+        <p><span>&copy;</span>2024 eduflash</p>
+    </footer>
 </body>
 </html>

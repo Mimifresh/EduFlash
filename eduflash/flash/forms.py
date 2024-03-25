@@ -20,14 +20,33 @@ class ResourceForm(models.ModelForm):
                 })
         }
 
+class FlashcardForm(models.ModelForm):
+    '''this class represents a form foe getting
+    information about a flashcard
+    to be updated
+    '''
+    class Meta:
+        model = Flashcard
+        fields = ['question', 'answer']
+        # widgets = {
+        #     'question': TextInput(attrs={
+        #         'class': "value",
+        #         }),
+        #     'answer': FileInput(attrs={
+        #         'class': "value", 
+        #         })
+        # }
+
+
 class LogInForm(AuthenticationForm):
     '''log in form'''
-    # widgets = {
-    #     'username': TextInput(attrs={'class': "value"}),
-    #     'password': PasswordInput(attrs={'class': "value"})
-    # }
-
-
+    username = fields.CharField(label='username', 
+        widget=TextInput(attrs={'class': 'value'})
+    )
+    password = fields.CharField(label='password', 
+        widget=PasswordInput(attrs={'class': 'value'})
+    )
+    
 
 class UserForm(models.ModelForm):
     '''this class represents a form for getting
@@ -69,6 +88,11 @@ class UserForm(models.ModelForm):
         if password1 and password2 and (password1 != password2):
             raise ValidationError('Passwords don\'t match.')
         return password2
+    
+    # def password_validator = RegexValidator(
+    # regex="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$",
+    # message="Password must have at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special symbol."
+    # )
 
     # def save(self, commit=True):
     #     user = super().save(commit=False)
