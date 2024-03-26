@@ -1,0 +1,15 @@
+.re_con{
+    text-align: left;
+    margin-left: 10px;
+}
+
+.re_con h3, h5, ul{
+    margin: 0;
+}
+
+.re_list{
+    margin-left: 20px;       
+}
+@media (max-width: 750px){
+    
+}

@@ -11,9 +11,11 @@ def query(payload):
     return response.json()
 
 
-instructions = "generate question(Q) answer(A) pair from the text above"
+instructions = "generate question(Q) and answer(A) pair from the text above"
 
 def main(text):
+    text = text.replace('\n', ' ')
+    text = text.replace('  ', ' ')
     output = query({
         'inputs': f"{text}. {instructions}",
         })
@@ -21,7 +23,7 @@ def main(text):
     questions = re.findall("\sQ:(.*)\?", output[0]['generated_text'])
     answers = re.findall("\sA:(.*)\.",  output[0]['generated_text'])
     dict_ = {}
-    for i in range(len(questions) - 1):
+    for i in range(len(questions)):
         try:
             dict_[questions[i]] = answers[i]
         except Exception:

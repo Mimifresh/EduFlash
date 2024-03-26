@@ -1,0 +1,20 @@
+{% extends 'flash/profile.html' %}
+
+{% block flashcards%}
+{% endblock %}
+{% block resources %}
+<div class="re_con">
+    <h3"><b>Resources</b></h3>
+    {% for resource in resources %}
+    <div class="re_list">
+        <h5>{{ resource.filename }}</h5>
+        <ul class="re_link">
+            <li><a href="{% url 'get_resource' resource.id %}/create_flashcards">create flashcards </a></li>
+            <li><a href="{% url 'get_resource' resource.id %}/view_flashcards">view flashcards </a></li>
+            <li><a href="{% url 'delete_resource' resource.id %}">delete resource </a></li>
+            <li><a href="{% url 'update_resource' resource.id %}">update resource </a></li>
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
