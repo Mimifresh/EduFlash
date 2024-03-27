@@ -1,7 +1,7 @@
 {% extends 'flash/main.html' %} 
 {% block hello %}
     {% if request.user.is_authenticated %}
-        <h3>welcome {{ request.user }}</h3>
+        <h3>Welcome {{ request.user }}</h3>
     {% endif %}
 {% endblock %}
 {% block content %}
@@ -19,7 +19,7 @@
     {% endblock %}
     <div class="view">
         {% block resources %}
-            <h4>view your <a class="solid_links" href="{% url 'resources' %}">resources</a></h4>
+            <h4>View your <a class="solid_links" href="{% url 'resources' %}">resources</a></h4>
         {% endblock %}
     </div>
 {% endblock %}

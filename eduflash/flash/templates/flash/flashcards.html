@@ -1,11 +1,11 @@
 {% extends 'flash/profile.html' %}
 {% block flashcards %}
 <div style="padding: 10px;">
-    <p style="margin: 0; padding: 0;">here are the flashcards created from your file <b>{{ resource.filename }}</b></p>
+    <p style="margin: 0; padding: 0;">Here are the flashcards created from your file <b>{{ resource.filename }}</b></p>
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
         {% for flashcard in flashcards %}
         <div style="height: 300px; width: 30%; min-width: 350px; overflow: auto; ::-webkit-scrollbar{display: none;} -ms-overflow-style: none; scrollbar-width: none;  margin: 10px auto; border: 1px solid rgb(5, 5, 78);">
-            <h5>{{ flashcard.question }}</h5>
+            <h5>{{ flashcard.question }}?</h5>
             <p>{{ flashcard.answer }}</p>
         </div>   
         {% endfor %}

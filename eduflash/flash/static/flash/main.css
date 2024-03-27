@@ -142,4 +142,7 @@
     padding: 10px;
     background-color: var(--light);
   }
-  
+	.abt-content {
+	font-size: 1.2rem;
+	text-align: left;
+  }

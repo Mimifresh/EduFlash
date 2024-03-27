@@ -22,36 +22,6 @@ def about(request):
     '''view for the about page'''
     return render(request, 'flash/about.html')
 
-def sign_up(request):
-    '''register a user'''
-    if request.user.is_authenticated:
-        return redirect('profile')
-    else:
-        form = UserForm(request.POST or None)
-        if request.POST:
-            if form.is_valid():
-                try:
-                    dict_ = {'username': request.POST['username'],
-                    'first_name': request.POST['first_name'],
-                    'last_name': request.POST['last_name'],
-                    'email': request.POST['email']
-                    }
-                    password = form.clean_password()
-                    user = models.User.objects.create_user(**dict_)
-                    user.set_password(password)
-                    user.save()
-                    return redirect('log_in')
-                except Exception as e:
-                    messages.error(request, e)
-                    return redirect('sign_up')
-            else:
-                messages.error(request, 'invalid form parameters')
-                return redirect('sign_up')
-        context = {'form': form, 'value': 'sign up', 'title': 'Sign up'}
-        return render(request, 'flash/upload.html', context)
-            
-
-
 
 def log_in(request):
     '''log a user in'''
@@ -87,6 +57,36 @@ def log_out(request):
     '''log a user out'''
     logout(request)
     return redirect('home')
+
+
+def sign_up(request):
+    '''register a user'''
+    if request.user.is_authenticated:
+        return redirect('profile')
+    else:
+        form = UserForm(request.POST or None)
+        if request.POST:
+            if form.is_valid():
+                try:
+                    dict_ = {'username': request.POST['username'],
+                    'first_name': request.POST['first_name'],
+                    'last_name': request.POST['last_name'],
+                    'email': request.POST['email']
+                    }
+                    password = form.clean_password()
+                    user = models.User.objects.create_user(**dict_)
+                    user.set_password(password)
+                    user.save()
+                    return redirect('log_in')
+                except Exception as e:
+                    messages.error(request, e)
+                    return redirect('sign_up')
+            else:
+                messages.error(request, 'invalid form parameters')
+                return redirect('sign_up')
+        context = {'form': form, 'value': 'sign up', 'title': 'Sign up'}
+        return render(request, 'flash/upload.html', context)
+
 
 
 def resources(request):

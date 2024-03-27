@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 '''this module contains urls/endpoints for the flash app'''
-from django.urls import path, include
+from django.urls import path
 from . import views
-from django.contrib import admin
 
-app_name = "flash"
+#app_name = 'flash'
 
 urlpatterns = [
     #path to the home page
@@ -26,7 +25,6 @@ urlpatterns = [
     # path('register', views.register, name='register'),
     # path('resource', views.resource, name='resource'),
 
-	
     # #register user
     # path('register', views.register, name='register'),
     
@@ -41,7 +39,7 @@ urlpatterns = [
     # path('users/<int:user_id>/resource', views.create_resource, name='resource'),
 
     #create a resource
-    
+    path('upload_resource', views.upload_resource, name='upload_resource'),
 
     #get a particular resource by id 
     path('get_resource/<int:pk>', views.get_resource, name='get_resource'),
