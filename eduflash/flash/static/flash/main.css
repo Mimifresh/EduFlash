@@ -4,6 +4,14 @@
     --decor: #1E56A0;
     --light: #D6E4F0;
   }
+
+  body {
+	position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 50px;
+  }
+
   html {
     margin: 0;
     padding: 0;
@@ -18,6 +26,8 @@
     text-align: center;
     text-wrap: wrap;
     word-wrap: break-word;
+	height: 100%;
+
   }
 
   .header{
@@ -80,7 +90,7 @@
   }
 
   .content{
-    min-height: 200px;
+    min-height: 300px;
     border: 1px solid var(--text-color);
     width: calc(100% - 250px);
     margin-left: 210px;
@@ -137,11 +147,14 @@
     }
   }
 
-  footer{
-    margin-top: 50px;
-    padding: 10px;
-    background-color: var(--light);
-  }
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	background-color: var(--light);
+}
 	.abt-content {
 	font-size: 1.2rem;
 	text-align: left;

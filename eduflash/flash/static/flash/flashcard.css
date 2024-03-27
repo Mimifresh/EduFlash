@@ -1,0 +1,79 @@
+.outer{
+	padding: 30px 10px;
+	background-color: rgba(236, 230, 234, 0.947);
+	margin: 10%;
+	/*width: auto;*/
+  }
+
+
+.flashcard-container {
+	align-items: center;
+	position: relative;
+	width: fit-content;
+	max-width: 80%;
+	margin: auto;
+	/*min-width: 50%;*/
+	padding: 5px;
+  }
+  
+
+.flashcards {
+	display: none;
+	width: auto;
+	max-width: 100%;
+  }
+  
+  .prev-btn, .next-btn {
+	cursor: pointer;
+	position: relative;
+	/*top: 20%;*/
+	width: auto;
+	margin-top: -90px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+  }
+  
+  .next-btn {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+  }
+  
+  .prev-btn:hover, .next-btn:hover {
+	background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Position the flashcards container and center its content */
+
+  /* Style the flashcard details */
+  .flashcards {
+	padding: 20px;
+	background-color: #f1f1f1;
+	text-align: center;
+	border-radius: 8px;
+	width: 100%; /* Ensures responsiveness */
+  }
+  
+  /* Basic responsive styles (optional) */
+  @media (max-width: 768px) {
+	.flashcard-container {
+	  max-width: 100%; /* Adjust max-width for smaller screens */
+	}
+  
+	.flashcards h4 {
+	  font-size: 18px; /* Adjust font size for smaller screens */
+	}
+  }
+  
+  .flashcard-navigation{
+	display: flex;
+	justify-content: space-between;
+  }
+
+  .warning {
+	margin-top: 90px;
+  }
+
