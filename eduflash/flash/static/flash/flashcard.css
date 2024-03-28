@@ -1,6 +1,8 @@
 .outer{
 	padding: 30px 10px;
-	background-color: rgba(236, 230, 234, 0.947);
+	background-color: #D6E4F0;
+	/*background-image: linear-gradient(to right bottom, #FAFAFA, #D6E4F0);*/
+	/*background-color: rgba(236, 230, 234, 0.947);*/
 	margin: 10%;
 	/*width: auto;*/
   }
@@ -30,7 +32,6 @@
 	width: auto;
 	margin-top: -90px;
 	padding: 16px;
-	color: white;
 	font-weight: bold;
 	font-size: 20px;
 	transition: 0.6s ease;

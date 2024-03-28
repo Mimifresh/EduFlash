@@ -14,7 +14,7 @@
 .contributorInfo{
     flex: 0 0 60%;
     padding: 10px;
-    
+	text-align: left;
 } 
 
 .contact h2 {
@@ -64,4 +64,8 @@
         flex: 0 0 80%;
         max-width: 500px;
     }
+}
+
+.contact {
+	text-align: center;
 }

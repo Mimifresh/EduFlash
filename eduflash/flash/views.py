@@ -108,7 +108,8 @@ def upload_resource(request):
                 resource = form.save(commit=False)
                 resource.user = request.user
                 resource.save()
-                resources = models.Resource.objects.all()
+                resources = models.Resource.objects.filter(user=request.user.id)
+                #resources = models.Resource.objects.all()
                 context = {'resources': resources}                
             else:
                 resource = form.save()
