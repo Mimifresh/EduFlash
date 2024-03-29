@@ -1,0 +1,38 @@
+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
+OPEN AI KEY = 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
+git clone https://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@github.com/Samfrodo9/monty.git
+
+mysql> CREATE USER 'edu_dev'@'127.0.0.1' IDENTIFIED BY 'edu_PASS@1234';
+
+git remote set-url origin https://USERNAME:PAT@github.com/USERNAME/REPO-NAME.git
+git remote set-url origin https://Samfrodo9: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@github.com/Samfrodo9/REPO-NAME.git
+(My PAT)
+
+https://docs.google.com/document/d/1NB6hFh8XYRVsBTLoGKTOuF4YwzI9PXxPUbGZFpvRvoA/edit?usp=sharing
+
+mysql -u root -p
+mysql -u Samfrodo -p [no permission given to this user yet]
+password is [my normal password]
+
+Your servers
+Name	Username	IP	State	
+93746-web-01	ubuntu	54.161.252.15	running	
+93746-web-02	ubuntu	18.204.14.152	running	
+93746-lb-01	ubuntu	52.91.122.198	running
+sudo ufw allow ssh;sudo ufw allow http;sudo ufw allow https;sudo ufw enable
+
+mimi:
+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
+
+
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+/var/www/html
+/etc/nginx/sites-available
+/etc/nginx/sites-enabled
+/usr/share/nginx/html
+
+docker run -it ubuntu
+ssh -i ~/.ssh/school ubuntu@34.229.68.181
