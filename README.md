@@ -3,7 +3,7 @@
 
 Tagline: Active Learning Through AI-Powered Flashcards
 
-### Team:
+### Team (Contributors):
 
 <a href="https://github.com/Samfrodo9">Adeyemi Samuel</a>
 <br>
@@ -14,24 +14,23 @@ Tagline: Active Learning Through AI-Powered Flashcards
 
 ### Description:
 
-EduFlash is a web application that uses AI to help users learn more effectively. Users can paste text directly into the app, and EduFlash will analyze the text and automatically generate flashcards highlighting the key points. This saves time and effort compared to manually creating flashcards, and the AI ensures that the flashcards are accurate and relevant.
+EduFlash is a web application that uses AI to help users learn more effectively. Users can paste text directly into the app, and EduFlash will analyze the text and automatically generate flashcards highlighting the key points. This saves time and effort compared to manually creating flashcards.
 
 ### Technologies:
 
-**Frontend:** ```React.js```
+*Frontend:* HTML, CSS and Javascript
 
-**Backend:** ```Django```
+*Backend:* Django
 
-***Other:*** ```HTML, CSS, Javascript, Python```
 
 
 ### Features:
 
-**AI-powered text summarization:** Automatically generate flashcards from lengthy texts.
-**Focus on factual information:** Prioritizes extracting factual information, minimizing risks associated with subjective interpretations.
-**User-friendly interface:** Easy to use and navigate.
-**Multiple learning modes:** Choose from different flashcard viewing options for optimal learning.
-**Accessibility:** Web-based solution accessible on various devices and browsers.
+*AI-powered text summarization:* Automatically generate flashcards from lengthy texts.
+*Focus on factual information:* Prioritizes extracting factual information, minimizing risks associated with subjective interpretations.
+*User-friendly interface:* Easy to use and navigate.
+*Multiple learning modes:* Choose from different flashcard viewing options for optimal learning.
+*Accessibility:* Web-based solution accessible on various devices and browsers.
 
 ### Target Audience:
 
@@ -47,5 +46,39 @@ Benefits:
 * Advanced learning features like spaced repetition algorithms
 * Text-to-speech functionality for accessibility
 
-### Contributing:
-This repository is currently **"private"** and only accessible to approved team members.
+### Getting Started:
+#### Prerequisites
+- Virtual Env
+- Django
+- MySQL
+
+#### Installation
+1. Clone the repository: git clone <repository_url>
+2. Set up a Virtual Environment: python -m venv virtual_env; source virtual_env/bin/activate
+3. Install dependencies: pip install Django
+4. Set up database
+4. Run the server: python3 manage.py runserver
+
+The server will start on port 8000 by default. You can change the port if neccesary.
+
+#### Database Setup
+Create a MySQL database with the following credentials:
+
+	Database name: eduflash
+	Username: edu_dev
+	Password: edu_pass
+	Host: Localhost
+
+Ensure that your MySQL server is running, and update the database configuration in .env with your database credentials.
+
+
+#### API Endpoints
+POST /sign_up: Create a new user
+POST log_in: Log a user in
+POST /log_out: Log a user out
+POST profile/<int:pk>: Get a User profile
+POST upload_resource: Upload a resource
+GET /get_resource/id/create_flashcards: Create and view Flashcards created from a resorce
+GET /get_resource/<int:fk>/view_flashcards: View all flashcards from a particular resource
+PATCH update_resource/<int:pk>: Delete and Update a resource
+DELETE delete_resource/<int:pk>: Delete a particular resource
