@@ -73,6 +73,7 @@ Ensure that your MySQL server is running, and update the database configuration 
 
 
 #### API Endpoints
+
 POST /sign_up: Create a new user
 POST log_in: Log a user in
 POST /log_out: Log a user out
