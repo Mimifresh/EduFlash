@@ -73,12 +73,12 @@ Ensure that your MySQL server is running, and update the database configuration 
 
 
 #### API Endpoints
-POST /sign_up: Create a new user
-POST log_in: Log a user in
-POST /log_out: Log a user out
-POST profile/<int:pk>: Get a User profile
-POST upload_resource: Upload a resource
-GET /get_resource/id/create_flashcards: Create and view Flashcards created from a resorce
-GET /get_resource/<int:fk>/view_flashcards: View all flashcards from a particular resource
-PATCH update_resource/<int:pk>: Delete and Update a resource
-DELETE delete_resource/<int:pk>: Delete a particular resource
+- POST /sign_up: Create a new user
+- POST log_in: Log a user in
+- POST /log_out: Log a user out
+- POST profile/<int:pk>: Get a User profile
+- POST upload_resource: Upload a resource
+- GET /get_resource/id/create_flashcards: Create and view Flashcards created from a resorce
+- GET /get_resource/<int:fk>/view_flashcards: View all flashcards from a particular resource
+- PATCH update_resource/<int:pk>: Delete and Update a resource
+- DELETE delete_resource/<int:pk>: Delete a particular resource
