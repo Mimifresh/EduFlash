@@ -20,22 +20,11 @@ urlpatterns = [
     #path to welcome a user
     path('profile/<int:pk>', views.profile, name='profile'),
 
-    # path('register', views.register, name='register'),
-    # path('resource', views.resource, name='resource'),
-
-    # #register user
-    # path('register', views.register, name='register'),
     
-    # #retrieve all resources of a user
+    #retrieve all resources of a user
     #path('profile/<int:fk>/resources', views.resources, name='resources'),
     path('resources', views.resources, name='resources'),
     
-    # #retrive or delete a resource by id
-    # path('resources/<int:resource_id>', views.resource, name='resource'),
-    
-    # #create resource object for specified user
-    # path('users/<int:user_id>/resource', views.create_resource, name='resource'),
-
     #create a resource
     path('upload_resource', views.upload_resource, name='upload_resource'),
 
@@ -56,12 +45,12 @@ urlpatterns = [
 
     #get  a flashcard
 
-    #path('flashcard/<int:pk>', views.get_flashcard)
+    #path('get_flashcard/<int:pk>', views.get_flashcard, name='get_flashcard'),
 
     #update a flashcard
-    #path('flashcard/<int:pk>', views.update_flashcards)
+    path('update_flashcard/<int:pk>', views.update_flashcard, name='update_flashcard'),
 
     #delete a flashcard
-    #path('flashcard/<int:pk>', views.delete_flashcards)
+    path('delete_flashcard/<int:pk>', views.delete_flashcard, name='delete_flashcard'),
 
 ]

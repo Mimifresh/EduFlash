@@ -12,23 +12,36 @@
     <link rel="stylesheet" href="{% static 'flash/uploadd.css' %}">
     <link rel="stylesheet" href="{% static 'flash/about.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'flash/favicon (3).ico' %}">
+    <link rel="stylesheet" href="{% static 'flash/flashcard.css' %}">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'flash/script__.js' %}"></script>
     <title>Eduflash</title>
+    
+    
 </head>
 <body>
     <header>
         <div class="header">
             <div class="nav">
                 <h1>EDUFLASH</h1>
-                <div class="links">
-                    <a href="{% url 'home' %}">Home</a>
+                <button class="nav_menu" type="button" onclick="hide()">
+                    <hr class="nav_line">
+                    <hr class="nav_line">
+                    <hr class="nav_line">
+                </button>
+                <div id="a" class="links hide" >
+                    <ul class="nav_ul">
+                        <li class="nav_li"><a href="{% url 'home' %}">Home</a></li>
                     {% if not request.user.is_authenticated %}
-                        <a href="{% url 'sign_up' %}">Sign up</a>
-                        <a href="{% url 'log_in' %}">Log in</a>
+                        <li class="nav_li"><a href="{% url 'sign_up' %}">Sign up</a></li>
+                        <li class="nav_li"><a href="{% url 'log_in' %}">Log in</a></li>
                     {% else %}
-                        <a href="{% url 'resources' %}">resources</a>
-                        <a href="{% url 'log_out' %}">Log out</a>
+                        <li class="nav_li"><a href="{% url 'resources' %}">resources</a></li>
+                        <li class="nav_li"><a href="{% url 'log_out' %}">Log out</a></li>
                     {% endif %}
-                    <a href="{% url 'about' %}">About</a>
+                        <li class="nav_li"><a href="{% url 'about' %}">About</a></li>
+                    </ul>
+
                 </div>
             </div>
             <div class="circle">
@@ -55,5 +68,6 @@
     <footer>
         <p><span>&copy;</span>2024 eduflash</p>
     </footer>
+    <script type="text/javascript" src="{% static 'flash/script__.js' %}"></script>
 </body>
 </html>

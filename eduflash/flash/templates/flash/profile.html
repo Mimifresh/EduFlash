@@ -5,21 +5,13 @@
     {% endif %}
 {% endblock %}
 {% block content %}
-    <!-- {% for resource in resources %}
-    <div>
-        <h3>{{ resource.name }} {{ resource.filepath }}</h3>
-        <ul >
-            <li><a href="{% url 'get_resource' resource.id %}/create_flashcards">create flashcards </a></li>
-            <li><a href="">delete resource </a></li>
-            <li><a href="">update resource </a></li>
-        </ul>
-    </div>
-    {% endfor %} -->
     {% block flashcards %}
     {% endblock %}
     <div class="view">
         {% block resources %}
+        {% if request.user.is_authenticated %}
             <h4>view your <a class="solid_links" href="{% url 'resources' %}">resources</a></h4>
+        {% endif %}
         {% endblock %}
     </div>
 {% endblock %}

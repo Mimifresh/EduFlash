@@ -108,7 +108,7 @@ def upload_resource(request):
                 resource = form.save(commit=False)
                 resource.user = request.user
                 resource.save()
-                resources = models.Resource.objects.all()
+                resources = models.Resource.objects.filter(user=request.user.id)
                 context = {'resources': resources}                
             else:
                 resource = form.save()
@@ -182,9 +182,9 @@ def create_flashcards(request, fk):
             flash = models.Flashcard(resource=resource, question=key, answer=value)
             flash.save()
     flashcards = models.Flashcard.objects.filter(resource=fk)
-    # if not request.user.is_authenticated:
-    #     resource.delete()
-    context = {'flashcards': flashcards, 'resource': resource}
+    length = len(flashcards)
+    indexed_flashcards = dict(enumerate(flashcards, start=1))
+    context = {'flashcards': indexed_flashcards, 'resource': resource, 'length': length}
     return render(request, 'flash/flashcards.html', context)
 
 
@@ -192,7 +192,9 @@ def view_flashcards(request, fk):
     '''view available flashcards'''
     resource = models.Resource.objects.get(id = int(fk))
     flashcards = models.Flashcard.objects.filter(resource=fk)
-    context = {'flashcards': flashcards, 'resource': resource}
+    length = len(flashcards)
+    indexed_flashcards = dict(enumerate(flashcards, start=1))
+    context = {'flashcards': indexed_flashcards, 'resource': resource, 'length': length}
     return render(request, 'flash/flashcards.html', context)
 
     
