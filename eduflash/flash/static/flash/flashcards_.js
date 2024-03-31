@@ -30,7 +30,7 @@ function showIndex(indexChange) {
     // alert("There are no flashcards to display.");
     return;
   }
-  currentIndex = Math.max(Math.min(currentIndex + indexChange, Count), 1);
+  currentIndex = Math.max(Math.min(currentIndex + indexChange, indexCount), 1);
 
   // Hide all indexes
   for (let i = 0; i < indexCount; i++) {
