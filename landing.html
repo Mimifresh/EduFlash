@@ -1,13 +1,62 @@
-<h1>EDUFLASH</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduFlash Dashboard</title>
-  <link rel="stylesheet" href="dashboard2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Butterfly+Kids&family=Cabin:ital@0;1&family=Itim&family=Kanit&family=Montserrat:wght@500&family=Open+Sans&family=Sacramento&family=Suravaram&family=Unna:ital@0;1&family=Zen+Loop&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'flash/favicon (3).ico' %}">
+    <title>Eduflash</title>
+   
 </head>
 <body>
-  
+    <header>
+        <div class="header">
+            <div class="nav">
+                <h1>EDUFLASH</h1>
+                <!-- <button class="nav_menu" type="button" onclick="hide()">
+                    <hr class="nav_line">
+                    <hr class="nav_line">
+                    <hr class="nav_line">
+                </button> -->
+                <!-- <div id="a" class="links hide" >
+                    <ul class="nav_ul">
+                        <li class="nav_li"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="nav_li"><a href="{% url 'sign_up' %}">Sign up</a></li>
+                        <li class="nav_li"><a href="{% url 'log_in' %}">Log in</a></li>
+                        <li class="nav_li"><a href="{% url 'resources' %}">resources</a></li>
+                        <li class="nav_li"><a href="{% url 'log_out' %}">Log out</a></li>
+                        <li class="nav_li"><a href="{% url 'about' %}">About</a></li>
+                    </ul>
+
+                </div> -->
+            </div>
+            <div class="circle">
+                <div>
+                    <h2>Eduflash</h2>
+                    <h4>Learning made fun</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="content">
+      <p>Eduflash genetates flashcards from text files.<br>
+      It leverages Natural language processing to process text and generate required output(questions and answers) <br>
+    this question and answer pairs are then displayed as "beautiful" flashcards<br>
+  <strong>With eduflash no more nap-time in study-time</strong> </p>
+      <p id="con_p">Enjoy an active and fun way of learning with Eduflash <br>      <a class="solid_links" href="">get started 
+      </a></p>
+
+    </div>
+    
+
+    <footer>
+        <p><span>&copy;</span>2024 eduflash</p>
+    </footer>
+    <script type="text/javascript" src=""></script>
 </body>
 </html>
