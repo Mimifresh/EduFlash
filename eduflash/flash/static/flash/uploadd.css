@@ -98,6 +98,10 @@ img {
   margin-bottom: 1.875rem;
 }
 
+.submit:hover{
+  opacity: 0.7;
+}
+
 @media (max-width: 41.061875rem) {
   .container {
     flex-direction: column;

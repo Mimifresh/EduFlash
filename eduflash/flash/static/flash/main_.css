@@ -86,6 +86,7 @@
     width: calc(100% - 250px);
     margin-left: 210px;
     margin-top: 50px;
+    margin-bottom: 100px;
   }
   
   #con_p{
@@ -194,8 +195,13 @@
   }
 
   footer{
+    width: 99%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    line-height: 20px;
     margin-top: 50px;
-    padding: 10px;
     background-color: var(--light);
+    margin: auto;
   }
   

@@ -1,6 +1,6 @@
 vedu
+*.pyc
 scss
 */*__pycache__
-*.pyc
 eduflash/start.sql
-media/*
+*media/*
