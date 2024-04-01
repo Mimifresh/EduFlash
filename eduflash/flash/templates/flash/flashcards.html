@@ -11,10 +11,6 @@
         <div class="prev"><button class="prev-btn" onclick="prevFlashcard()">&#10094;</button></div>
         {% for key, value in flashcards.items %}
         <div class="flashcards">
-            <div class="flash_links">
-                <a class="f_btn" href="{% url 'update_flashcard' value.id %}">update_flashcard</a>
-                <a class="f_btn" href="{% url 'delete_flashcard' value.id %}">delete_flashcard</a>
-            </div>
             <details>
                 <summary>
                     <h4>{{ value.question }}?</h4>

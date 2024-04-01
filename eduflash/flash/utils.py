@@ -19,7 +19,7 @@ def main(text):
     output = query({
         'inputs': f"{text}. {instructions}",
         })
-    #print(output)
+    print(output)
     questions = re.findall("\sQ:(.*)\?", output[0]['generated_text'])
     answers = re.findall("\sA:(.*)\.",  output[0]['generated_text'])
     dict_ = {}

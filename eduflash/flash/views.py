@@ -218,21 +218,19 @@ def update_flashcard(request, pk):
     flashcard =  models.Flashcard.objects.get(id=pk)
     form = FlashcardForm(instance=flashcard)
     if request.method == "POST":
-        form = FlashcardForm(request.POST, instance=flashcard)
+        form = ResourceForm(request.POST, instance=flashcard)
         if form.is_valid():
-            a = form.save()
-            re_id = a.resource.id
-            return redirect(f'{re_id}/view_flashcards')
+            form.save()
+            return redirect('view_flashcards')
     context = {"form": form, 'value': 'update', 'title': 'Update flashcard'}
     return render(request, 'flash/upload.html', context)
 
 def delete_flashcard(request, pk):
     '''delete flashcard specified by pk'''
     flashcard =  models.Flashcard.objects.get(id=pk)
-    re_id = flashcard.resource.id
     if flashcard:
         flashcard.delete()
-    return redirect(f'{re_id}/view_flashcards')
+    return redirect('view_flashcards')
 
 #def login(request):
     '''view for the login endpoint get and post
