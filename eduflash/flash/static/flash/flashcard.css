@@ -19,6 +19,17 @@
     border-radius: 8px;
 }
 
+.f_btn{
+  all: unset;
+  background-color: var(--text-color);
+  color: var(--light);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+
+}
+
 .indexes{
   margin-top: 200px;
 }
