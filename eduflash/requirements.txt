@@ -1,0 +1,5 @@
+Django
+mysqlclient
+sqlparse
+requests
+gunicorn
