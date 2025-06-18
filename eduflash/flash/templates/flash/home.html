@@ -1,0 +1,119 @@
+{% extends 'flash/main.html' %}
+{% load static %}
+{% block title %}EduFlash - Transform Your Study Materials{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Transform Your Study Materials into 
+                <span class="hero-accent">Smart Flashcards</span>
+            </h1>
+            <p class="hero-subtitle">
+                Upload your documents and let AI create personalized flashcards to accelerate your learning
+            </p>
+            <div class="hero-buttons">
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'sign_up' %}" class="btn btn-accent btn-large">
+                        Get Started Free
+                    </a>
+                    <a href="{% url 'upload_resource' %}" class="btn btn-outline btn-large">
+                        Try Without Account
+                    </a>
+                {% else %}
+                    <a href="{% url 'upload_resource' %}" class="btn btn-accent btn-large">
+                        Upload New Resource
+                    </a>
+                    <a href="{% url 'resources' %}" class="btn btn-outline btn-large">
+                        View My Resources
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose EduFlash?</h2>
+            <p class="section-subtitle">
+                Revolutionize your study experience with AI-powered flashcard generation
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon primary">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3 class="feature-title">AI-Powered Generation</h3>
+                <p class="feature-description">
+                    Our intelligent system automatically creates relevant questions and answers from your uploaded materials
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon success">
+                    <i class="fas fa-file-upload"></i>
+                </div>
+                <h3 class="feature-title">Multiple File Formats</h3>
+                <p class="feature-description">
+                    Upload PDFs, Word documents, text files, and more. We support various formats for your convenience
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon accent">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <h3 class="feature-title">Customizable Content</h3>
+                <p class="feature-description">
+                    Edit, update, and personalize your flashcards to match your learning style and preferences
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Simple steps to create your personalized flashcards</p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Upload</h3>
+                <p class="step-description">Upload your study materials in any supported format</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Process</h3>
+                <p class="step-description">Our AI analyzes and extracts key information</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Generate</h3>
+                <p class="step-description">Flashcards are automatically created with questions and answers</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Study</h3>
+                <p class="step-description">Review and customize your flashcards for optimal learning</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+{% endblock %}

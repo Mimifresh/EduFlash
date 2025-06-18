@@ -15,7 +15,7 @@ def home(request):
     '''view for the home page'''
     if request.user.is_authenticated:
         return redirect(f'profile/{request.user.id}')
-    return render(request, 'flash/main.html')
+    return render(request, 'flash/home.html')
     #return  HttpResponse('hello world')
 
 def about(request):
@@ -176,6 +176,7 @@ def create_flashcards(request, fk):
         for line in rse:
             text += line
     text_array =  re.split("\.\s", text)
+    print(text_array)
     for text in text_array:
         flash_dict = utils.main(text)
         for key, value in flash_dict.items():
@@ -233,29 +234,4 @@ def delete_flashcard(request, pk):
     if flashcard:
         flashcard.delete()
     return redirect(f'{re_id}/view_flashcards')
-
-#def login(request):
-    '''view for the login endpoint get and post
-    if method is post call a method user.authenticate
-    if true return the user dashboard
-    if method is get return login page'''
-
-
-
-
-
-#def flashcards(request, fk):
-    '''if method is get retrieves all flashcard created from a resource specified by fk
-    the fk being the resource id
-    if method is post create flashcards from the resource specified in by fk
-    save it to database
-    render a page that gives the users options to view the flashcards
-     '''
-
-
-#def flashcard(request, pk):
-    '''get put delete
-    if method is get retrive a particular flashcard
-    if method is put update flashcard infomation
-    if method is delete delete a flashcard'''
 

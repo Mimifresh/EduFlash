@@ -1,0 +1,41 @@
+﻿A cache is a piece of hardware or software that stores data so they can be retrieved faster when needed, this helps in reducing the cost and time required to retrieve the data from the actual memory store.
+Data is transferred btw memory and cache in blocks of fixed size called cahe lines
+Caching involves keeping recently or frequently used data in a cache so they can be easily accessed.
+
+
+Cache replacement policies/ cache replacement algorithms/ cache algorithms are instructions used to manage a cache, this involves choosing which data to discard.
+
+
+Random replacement:
+Selects and discards items at random, no,need to keep an access history since data are selected and discarded randomly irrespective of when added or how frequently used in arm processors
+
+
+Simple queue based policies
+First in first out(queue):
+Items are discarded in the order in which they were added irrespective of how frequently they were accessed.
+When there is need for space the oldest item is evicted
+
+
+Last in first out(stack):
+Evicts most recently added item(s) when there is need for space irrespective of how often they were accessed
+
+
+SEIVE
+Designed for web caches
+Consists of one fifo queue and a moving hand, items in the queue has a metadata indicating whether the object has been visited since each hand-round 
+New items are added at the head while older objects are shifted to the tail
+The moving hand starts at the tail and moves to the head
+At each item if the metadata indicated that the data was not visited the data is discarded,
+Then the other items are adjusted  to make space at the head for item addition
+Else it is set to not visited and skipped, that is the hand moves to the next item towards the head.
+When the hand gets to the head the round ebds it returns to the tail and a new round starts
+sieve illustration
+
+
+Simple recency-based policies
+Least recently used(LRU)
+Discards least recently used items first, it requires keeeping track of what was used and when, cachelines has age-bits, used to track the least recently used, when a cacheline is used its age-bit gets adjusted
+
+
+Most recently used(MRU)
+Works similarly to lru but discards most recently used instead

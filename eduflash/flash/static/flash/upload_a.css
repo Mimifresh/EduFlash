@@ -1,0 +1,88 @@
+
+.upload-container {
+  max-width: 30rem;
+  margin: auto;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.w-full {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.upload-container h1 {
+  width: 80%;
+  margin: 1.25rem auto;
+  text-align: left;
+}
+
+
+.container__form {
+  flex: 0 0 40%;
+  margin: auto;
+  word-wrap: break-word;
+}
+.container__form p {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+  margin-bottom: 1.875rem;
+}
+.container__form__fm {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+.value {
+  all: unset;
+  width: 98%;
+  margin-bottom: 1.875rem;
+  border-bottom: 1px solid black;
+}
+
+.check {
+  margin-bottom: 1.875rem;
+}
+
+.submit {
+  all: unset;
+  width: 12.5rem;
+  max-width: 80%;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  text-align: center;
+  border-radius: 1.25rem;
+  padding: 0.3125rem 0;
+  margin-bottom: 1.875rem;
+}
+
+.submit:hover{
+  opacity: 0.7;
+}
+
+@media (max-width: 41.061875rem) {
+
+  .container__form {
+    width: 80%;
+  }
+}
+@media (max-width: 53.124375rem) {
+  .container__form {
+    flex: 0 0 50%;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.helptext {
+  display: none;
+}

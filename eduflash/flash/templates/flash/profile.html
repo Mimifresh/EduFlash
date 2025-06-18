@@ -1,17 +1,52 @@
-{% extends 'flash/main.html' %} 
-{% block hello %}
-    {% if request.user.is_authenticated %}
-        <h3>welcome {{ request.user }}</h3>
-    {% endif %}
+{% extends 'flash/main.html' %}
+{% load static %}
+
+{% block title %}Profile - EduFlash{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'flash/profile.css' %}">
 {% endblock %}
+
 {% block content %}
-    {% block flashcards %}
-    {% endblock %}
-    <div class="view">
-        {% block resources %}
-        {% if request.user.is_authenticated %}
-            <h4>view your <a class="solid_links" href="{% url 'resources' %}">resources</a></h4>
-        {% endif %}
-        {% endblock %}
+<div class="profile-container">
+    <!-- Welcome Section -->
+    <div class="pro-welcome-section">
+        <div class="pro-welcome-content">
+            <div class="pro-welcome-text">
+                <h1 class="pro-welcome-title">Welcome back, {{ request.user.username|default:user.username }}!</h1>
+                <p class="pro-welcome-subtitle">Ready to continue your learning journey?</p>
+            </div>
+            <div class="pro-welcome-icon">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+        </div>
     </div>
+
+    <!-- Quick Actions -->
+    <div class="pro-quick-actions">
+        <a href="{% url 'upload_resource' %}" class="pro-action-card">
+            <div class="pro-action-content">
+                <div class="pro-action-icon primary">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="pro-action-text">
+                    <h3 class="pro-action-title">Upload New Resource</h3>
+                    <p class="pro-action-description">Add study materials</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="{% url 'resources' %}" class="pro-action-card">
+            <div class="pro-action-content">
+                <div class="pro-action-icon success">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <div class="pro-action-text">
+                    <h3 class="pro-action-title">My Resources</h3>
+                    <p class="pro-action-description">View all materials</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 {% endblock %}

@@ -1,70 +1,97 @@
 {% extends 'flash/main.html' %}
-{% block catch %}
 {% load static %}
-<div>
-    <section>
-        <div class="container_">
-            <div class="con">
-                <div class="con__text">
-                    <p>Lorem ipsum dolor, Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque est pariatur assumenda beatae odit veniam corporis esse rerum facere explicabo eius dolorem, vitae magnam tenetur quod, soluta quisquam a eum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime inventore quam delectus omnis modi veritatis quos quisquam commodi voluptatem sapiente nihil, odit voluptatibus, illo corrupti perspiciatis accusantium distinctio perferendis minus? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati iste, eveniet pariatur atque nesciunt quos facere animi cumque nihil adipisci? Inventore veniam sunt necessitatibus, veritatis cumque alias quaerat nihil obcaecati! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magnam dolor obcaecati commodi incidunt mollitia, doloremque sit assumenda, dolore ullam veniam iusto vel? Tempora voluptate veniam autem ex? Quisquam, nesciunt. sit amet consectetur adipisicing elit. Odit aut vero suscipit expedita est, quaerat veritatis laboriosam magni minus quis voluptatum quibusdam doloremque architecto. Quae libero corporis eum aperiam repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor tempore vitae magnam eveniet est ipsum. Dolore eveniet distinctio ducimus eos perspiciatis optio, quos provident quam omnis maiores, ullam maxime cumque.</p>
+{% block title %}About EduFlash{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <div class="about-header">
+        <h1 class="about-title">About EduFlash</h1>
+        <p class="about-subtitle">
+            Empowering learners worldwide with AI-driven study tools that make education more effective and engaging
+        </p>
+    </div>
+
+    <div class="about-content">
+        <div class="about-mission-section">
+            <h2 class="about-section-title">Our Mission</h2>
+            <p class="about-mission-text">
+                At EduFlash, we believe that everyone deserves access to personalized, effective learning tools. 
+                Our mission is to transform the way students interact with their study materials by leveraging 
+                artificial intelligence to create customized flashcards that enhance retention and understanding.
+            </p>
+        </div>
+
+        <div class="about-values-grid">
+            <div class="about-value-card primary">
+                <h3 class="about-value-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Innovation
+                </h3>
+                <p class="about-value-description">
+                    We continuously innovate to bring you the latest in educational technology, 
+                    making learning more efficient and enjoyable.
+                </p>
+            </div>
+            <div class="about-value-card success">
+                <h3 class="about-value-title">
+                    <i class="fas fa-users"></i>
+                    Community
+                </h3>
+                <p class="about-value-description">
+                    We're building a community of learners who support each other in achieving 
+                    their educational goals through collaborative learning.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-how-it-works-section">
+            <h2 class="about-section-title">How EduFlash Works</h2>
+            <div class="about-process-steps">
+                <div class="about-process-step">
+                    <div class="about-step-icon">1</div>
+                    <div class="about-step-content">
+                        <h4 class="about-step-title">Upload Your Materials</h4>
+                        <p class="about-step-description">Simply upload your study documents, notes, or textbooks in various formats.</p>
+                    </div>
+                </div>
+                <div class="about-process-step">
+                    <div class="about-step-icon">2</div>
+                    <div class="about-step-content">
+                        <h4 class="about-step-title">AI Processing</h4>
+                        <p class="about-step-description">Our advanced AI analyzes your content and identifies key concepts and information.</p>
+                    </div>
+                </div>
+                <div class="about-process-step">
+                    <div class="about-step-icon">3</div>
+                    <div class="about-step-content">
+                        <h4 class="about-step-title">Flashcard Generation</h4>
+                        <p class="about-step-description">Intelligent question-answer pairs are automatically generated from your materials.</p>
+                    </div>
+                </div>
+                <div class="about-process-step">
+                    <div class="about-step-icon">4</div>
+                    <div class="about-step-content">
+                        <h4 class="about-step-title">Study & Review</h4>
+                        <p class="about-step-description">Review your personalized flashcards and track your learning progress.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--<hr class="dot">-->
-        <div class="contributors">
-            <h1>Contributors</h1>
-            <div class="contributor" id="sam">
-                <div class="contributorImg">
-                    <img class="us" src="{% static 'flash/sam.png' %}" alt="">
-                </div>
-                <div class="contributorInfo">
-                    <p>Samuel is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, impedit? Nihil nisi nam in, reiciendis saepe culpa vel aliquam repudiandae nobis ea tempore voluptates laboriosam dolores, nostrum Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis perspiciatis debitis provident molestias. Id impedit minima minus laborum perferendis harum maxime. Voluptate modi, ut possimus quaerat deserunt nesciunt ipsam ipsum.</p>
-                    <div class="contact">
-                        <h2>contact him</h2>
-                        <div class="con_links">
-                            <a href="mailto:name@gmail.com" class="btn">mail</a>
-                            <a href="https://twitter.com" class="btn">twitter</a>
-                            <a href="https://github.com" class="btn">github</a>
-                            <a href="https://linkedin.com" class="btn">linkedin</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contributor" id="mimi">
-                <div class="contributorImg">
-                    <img class="us" src="{% static 'flash/mimi.png' %}" alt="">
-                </div>
-                <div class="contributorInfo">
-                    <p>Miracle is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, impedit? Nihil nisi nam in, reiciendis saepe culpa vel aliquam repudiandae nobis ea tempore voluptates laboriosam dolores, nostrum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae alias, pariatur placeat rerum, laudantium ratione itaque, enim quaerat assumenda praesentium dolores quae labore beatae quisquam molestias ut! Inventore, quas expedita?</p>
-                    <div class="contact">
-                        <h2>contact her</h2>
-                        <div class="con_links">
-                            <a href="mailto:name@gmail.com" class="btn">mail</a>
-                            <a href="https://twitter.com" class="btn">twitter</a>
-                            <a href="https://github.com" class="btn">github</a>
-                            <a href="https://linkedin.com" class="btn">linkedin</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contributor" id="cheta">
-                <div class="contributorImg">
-                    <img class="us" src="{% static 'flash/cheta.png' %}" alt="">
-                </div>
-                <div class="contributorInfo">
-                    <p>chetachi is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, impedit? Nihil nisi nam in, reiciendis saepe culpa vel aliquam repudiandae nobis ea tempore voluptates laboriosam dolores, nostrum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic optio maxime maiores dignissimos odit voluptates odio! Laudantium fugit ratione beatae nihil non labore velit numquam, eius tenetur, adipisci blanditiis tempora.</p>
-                    <div class="contact">
-                        <h2>contact her</h2>
-                        <div class="con_links">
-                            <a href="mailto:chetaGod4life@gmail.com" class="btn">mail</a>
-                            <a href="https://twitter.com/ChimCheta" class="btn">twitter</a>
-                            <a href="https://github.com/De-Chetachi" class="btn">github</a>
-                            <a href="https://www.linkedin.com/in/chetachi-divine-450a24232/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BwiuogwzHRjCyNDNXlzeFsQ%3D%3D" class="btn">linkedin</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        <div class="about-cta-section">
+            <h2 class="about-cta-title">Ready to Get Started?</h2>
+            <p class="about-cta-description">
+                Join thousands of students who are already using EduFlash to enhance their learning experience.
+            </p>
+            {% if not request.user.is_authenticated %}
+                <a href="{% url 'sign_up' %}" class="btn-about btn-accent-about">Sign Up Now</a>
+            {% else %}
+                <a href="{% url 'upload_resource' %}" class="btn-about btn-accent-about">Upload Your First Resource</a>
+            {% endif %}
         </div>
-    </section>
+    </div>
 </div>
-{% endblock%}
+{% endblock %}

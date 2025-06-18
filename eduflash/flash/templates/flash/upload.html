@@ -1,24 +1,86 @@
 {% extends 'flash/main.html' %}
-{% block hello %}
+{% load static %}
+
+{% block title %}{{ title }} - EduFlash{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'flash/upload.css' %}">
 {% endblock %}
-{% block catch %}
-{% endblock %}
+
 {% block content %}
-{% if messages %}
-<ul>
-    {% for message in messages %}
-    <li>
-        {{ message }}
-    </li>
-    {% endfor %}
-</ul>
-<p></p>
-{% endif %}
-<h2>{{ title }}</h2>
-<form class="container__form__fm" enctype="multipart/form-data" method="POST" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input class="submit" type="submit" value="{{ value }}"/>
-</form>
-</p>
+<div class="upload-container">
+    <div class="upload-form-wrapper">
+        <div class="form-header">
+            <h1 class="form-title">{{ title }}</h1>
+            {% if title == 'File uploader' %}
+                <p class="form-subtitle">Upload your study materials to generate flashcards</p>
+            {% elif title == 'Sign up' %}
+                <p class="form-subtitle">Create your account to get started</p>
+            {% elif title == 'log in' %}
+                <p class="form-subtitle">Welcome back! Please sign in to your account</p>
+            {% endif %}
+        </div>
+
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}" class="form-label">
+                        {{ field.label }}
+                        {% if field.field.required %}
+                            <span class="required">*</span>
+                        {% endif %}
+                    </label>
+                    
+                    {% if field.name == 'filepath' %}
+                        <div class="file-upload-area">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                <div class="upload-text">
+                                    <label for="{{ field.id_for_label }}" class="upload-label">
+                                        <span>Upload a file</span>
+                                        {{ field }}
+                                    </label>
+                                    <span class="upload-or">or drag and drop</span>
+                                </div>
+                                <p class="upload-hint">TXT files only</p>
+                            </div>
+                        </div>
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                    
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="field-error">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="form-submit">
+                <button type="submit" class="w-full btn btn-primary btn-full">
+                    {{ value|capfirst }}
+                </button>
+            </div>
+        </form>
+
+        {% if title == 'log in' %}
+            <div class="form-footer">
+                <p class="footer-text">
+                    Don't have an account? 
+                    <a href="{% url 'sign_up' %}" class="footer-link">Sign up here</a>
+                </p>
+            </div>
+        {% elif title == 'Sign up' %}
+            <div class="form-footer">
+                <p class="footer-text">
+                    Already have an account? 
+                    <a href="{% url 'log_in' %}" class="footer-link">Log in here</a>
+                </p>
+            </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
