@@ -2,9 +2,7 @@ import requests
 from os import getenv
 import re
 import json
-#API_TOKEN = getenv("HUGGINGFACE_API_TOKEN")
-#API_TOKEN = "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"
-API_TOKEN = "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"
+API_TOKEN = getenv("AI_API_TOKEN")
 #API_URL = "https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1"
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 headers = {"Authorization": f"Bearer {API_TOKEN}", "Content-Type": "application/json"}
