@@ -86,15 +86,32 @@ WSGI_APPLICATION = 'eduflash.wsgi.application'
     }
 }
 '''
+user = getenv('DB_USER')
+password = getenv('DB_PASSWORD')
+host = getenv('DB_HOST')
+db = getenv('DB_NAME')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eduflash',
-        'USER': 'edu_dev',
-        'PASSWORD': 'edu_pass',
-        'HOST': 'localhost'
+        'NAME': db if db else 'eduflash',
+        'USER': user if user else 'edu_dev',
+        'PASSWORD': password if password else 'edu_pass',
+        'HOST': host if host else 'localhost',
+        'PORT': '3306',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'eduflash',
+#         'USER': 'edu_dev',
+#         'PASSWORD': 'edu@2457',
+#         'HOST': 'localhost'
+#     }
+# }
 
 
 # Password validation
