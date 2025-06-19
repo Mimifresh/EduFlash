@@ -1,4 +1,5 @@
 vedu
+vedu/*
 *.pyc
 scss
 */*__pycache__
