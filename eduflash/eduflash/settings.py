@@ -86,10 +86,11 @@ WSGI_APPLICATION = 'eduflash.wsgi.application'
     }
 }
 '''
-user = getenv('DB_USER')
-password = getenv('DB_PASSWORD')
-host = getenv('DB_HOST')
-db = getenv('DB_NAME')
+user = getenv('MYSQLUSER')
+password = getenv('MYSQLPASSWORD')
+host = getenv('MYSQLHOST')
+db = getenv('MYSQLDATABASE')
+db_port = getenv('MYSQLPORT')
 
 DATABASES = {
     'default': {
@@ -98,7 +99,7 @@ DATABASES = {
         'USER': user if user else 'edu_dev',
         'PASSWORD': password if password else 'edu_pass',
         'HOST': host if host else 'localhost',
-        'PORT': '3306',
+        'PORT': db_port if db_port else'3306',
     }
 }
 
